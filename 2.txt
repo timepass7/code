@@ -1,0 +1,47 @@
+Ex2a 
+import java.net.InetAddress; 
+public class Ex2a { 
+    public static void 
+main(String[]args)throws 
+            Exception 
+    { 
+     InetAddress 
+addr=InetAddress.getLocalHost(); 
+     System.out.println("Host 
+Name:"+addr.getHostName()); 
+     System.out.println("IP 
+Address:"+addr.getHostAddress()); 
+    } 
+} 
+
+Ex2b 
+import java.io.IOException; 
+import java.net.*; 
+public class Ex2bnew 
+{ 
+    public static void main(String[] args) 
+    { 
+    try 
+    { 
+    InetAddress 
+addr=InetAddress.getLocalHost(); 
+    Socket thesoc=new Socket(addr,139); 
+    System.out.println("Connected to 
+"+thesoc.getInetAddress()+"on the port 
+"+thesoc.getPort()+"from port 
+"+thesoc.getLocalPort()+"of 
+"+thesoc.getLocalAddress()); 
+    } 
+    catch(UnknownHostException e) 
+    { 
+    System.err.println("Can't find "+e); 
+    } 
+    catch(SocketException e) 
+    { 
+        System.err.println("Could not connect 
+"+e); 
+    } 
+    catch(IOException e) { 
+        System.out.println(e); 
+    } 
+    } } 
