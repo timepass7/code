@@ -1,0 +1,46 @@
+Sender:
+import java.io.*;
+import java.net.*;
+public class Sender {
+public static void main(String[] args) throws Exception {
+Socket s = new Socket("localhost", 1234);
+
+DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+System.out.print("Enter number of frames to send: ");
+int frames = Integer.parseInt(br.readLine());
+dos.write(frames);
+for (int i = 0; i < frames; i++) {
+System.out.print("Enter message for frame " + i + ": ");
+String msg = br.readLine();
+dos.writeUTF(msg);
+System.out.println("Frame " + i + " sent.");
+Thread.sleep(500);
+}
+dos.close();
+s.close();
+}
+}
+
+Receiver:
+import java.io.*;
+import java.net.*;
+
+public class Receiver {
+public static void main(String[] args) throws Exception {
+ServerSocket ss = new ServerSocket(1234);
+Socket s = ss.accept();
+DataInputStream dis = new DataInputStream(s.getInputStream());
+int frames = dis.read();
+for (int i = 0; i < frames; i++) {
+String msg = dis.readUTF();
+
+System.out.println("Frame " + i + " received: " + msg);
+System.out.println("Acknowledgment sent for frame " + i);
+Thread.sleep(500);
+}
+dis.close();
+s.close();
+ss.close();
+}
+}
