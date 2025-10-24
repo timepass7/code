@@ -1,0 +1,24 @@
+import java.math.BigInteger;
+public class RSA {
+static int gcd(int a, int b) {
+return (a == 0) ? b : gcd(b % a, a);
+}
+public static void main(String[] args) {
+int p = 3, q = 11, msg = 12;
+int n = p * q, z = (p - 1) * (q - 1);
+System.out.println("the value of z = " + z);
+int e = 2;
+while (gcd(e, z) != 1) e++;
+System.out.println("the value of e = " + e);
+int d = 0;
+for (int i = 1; i < z; i++) {
+if ((i * e) % z == 1) { d = i; break; }
+}
+System.out.println("the value of d = " + d);
+BigInteger N = BigInteger.valueOf(n);
+BigInteger C = BigInteger.valueOf(msg).pow(e).mod(N);
+BigInteger M = C.pow(d).mod(N);
+System.out.println("Encrypted message is : " + C);
+System.out.println("Decrypted message is : " + M);
+}
+}
