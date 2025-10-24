@@ -1,0 +1,50 @@
+Sender:
+import java.io.*;
+import java.net.*;
+public class Sender1 {
+public static void main(String[] args) throws Exception {
+Socket s = new Socket("localhost", 1234);
+DataOutputStream out = new DataOutputStream(s.getOutputStream());
+BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+System.out.print("Enter message: ");
+String msg = br.readLine();
+for (char c : msg.toCharArray()) {
+out.writeChar(c);
+out.flush();
+System.out.println("Sent: " + c);
+
+String ack = in.readLine();
+System.out.println("Received ACK: " + ack);
+
+}
+s.close();
+}
+}
+Receiver:
+import java.io.*;
+import java.net.*;
+public class Receiver1 {
+public static void main(String[] args) throws Exception {
+ServerSocket ss = new ServerSocket(1234);
+System.out.println("Waiting for connection...");
+Socket s = ss.accept();
+System.out.println("Connected to sender.");
+DataInputStream in = new DataInputStream(s.getInputStream());
+PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+try {
+while (true) {
+char c = in.readChar();
+System.out.println("Received: " + c);
+out.println("ACK for " + c);
+}
+} catch (EOFException e) {
+System.out.println("Sender closed the connection.");
+}
+in.close();
+out.close();
+s.close();
+ss.close();
+}
+
+}
