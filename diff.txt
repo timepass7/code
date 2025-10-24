@@ -1,0 +1,18 @@
+public class Diffie {
+static long power(long base, long exp, long mod) {
+return (long) Math.pow(base, exp) % mod;
+}
+public static void main(String[] args) {
+long P = 23, G = 9;
+long a = 4, b = 3;
+long x = power(G, a, P);
+long y = power(G, b, P);
+long ka = power(y, a, P);
+long kb = power(x, b, P);
+System.out.println("P: " + P + " G: " + G);
+System.out.println("Alice's Private: " + a );
+System.out.println("Bob's Private: " + b );
+System.out.println("Shared Secret (Alice): " + ka);
+System.out.println("Shared Secret (Bob): " + kb);
+}
+}
