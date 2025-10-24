@@ -1,20 +1,78 @@
 import java.util.Scanner;
-public class CRC{
-public static void main(String[] args) {
-Scanner sc = new Scanner(System.in);
-System.out.print("Enter the data frame length: ");
-int len = sc.nextInt();
-sc.nextLine();
-System.out.print("Enter the message: ");
-String data = sc.nextLine();
-System.out.println("Data to be transmitted: " + data);
-System.out.print("Enter the received data: ");
-String received = sc.nextLine();
-if (data.equals(received)) {
-System.out.println("No error");
-} else {
-System.out.println("Error detected");
+public class Ex3
+{
+void div (int a[],int k)
+{
+int gp[]={1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1};
+int count=0;
+for(int i=0;i<k;i++)
+{
+if(a[i]==gp[0])
+{
+for(int j=i;j<17;j++)
+{
+a[j]=a[j]^gp[count++];
 }
-sc.close();
+count=0;
+}
+}
+}
+public static void main(String[] args)
+{
+int a[]=new int[100];
+int b[]=new int[100];
+int len,k;
+Ex3 ob=new Ex3();
+System.out.println("Enter the length of the data frame");
+Scanner sc=new Scanner(System.in);
+len=sc.nextInt();
+int flag=0;
+System.out.println("Enter the message");
+for(int i=0;i<len;i++)
+{
+    a[i]=sc.nextInt();
+}
+for(int i=0;i<16;i++)
+{
+a[len++]=0;
+}
+k=len-16;
+for(int i=0;i<len;i++)
+{
+b[i]=a[i];
+}
+ob.div(a, k);
+for(int i=0;i<len;i++)
+{
+a[i]=a[i]^b[i];}
+System.out.println("Data to be transmitted");
+
+for(int i=0;i<len;i++)
+{
+System.out.println(a[i]+"");
+}
+System.out.println();
+System.out.println("Enter received data");
+for(int i=0;i<len;i++)
+{
+a[i]=sc.nextInt();
+}
+ob.div(a, k);
+for(int i=0;i<len;i++)
+{
+if(a[i]!=0)
+{
+flag=1;
+break;
+}
+}
+if(flag==1)
+{
+System.out.println("Error in data");
+}
+else
+{
+System.out.println("No error");
+}
 }
 }
