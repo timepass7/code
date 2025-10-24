@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class SubCipher {
+static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+static final String KEY = "QWERTYUIOPASDFGHJKLZXCVBNM";
+static String encrypt(String msg) {
+StringBuilder res = new StringBuilder();
+for (char c : msg.toUpperCase().toCharArray())
+res.append(Character.isLetter(c) ? KEY.charAt(ALPHABET.indexOf(c)) : c);
+return res.toString();
+}
+static String decrypt(String text) {
+StringBuilder res = new StringBuilder();
+for (char c : text.toUpperCase().toCharArray())
+res.append(Character.isLetter(c) ? ALPHABET.charAt(KEY.indexOf(c)) : c);
+return res.toString();
+}
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter message: ");
+String msg = sc.nextLine();
+String enc = encrypt(msg);
+
+System.out.println("Encrypted: " + enc);
+System.out.println("Decrypted: " + decrypt(enc));
+sc.close();
+}
+}
