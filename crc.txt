@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class CRC{
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter the data frame length: ");
+int len = sc.nextInt();
+sc.nextLine();
+System.out.print("Enter the message: ");
+String data = sc.nextLine();
+System.out.println("Data to be transmitted: " + data);
+System.out.print("Enter the received data: ");
+String received = sc.nextLine();
+if (data.equals(received)) {
+System.out.println("No error");
+} else {
+System.out.println("Error detected");
+}
+sc.close();
+}
+}
