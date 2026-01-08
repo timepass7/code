@@ -1,0 +1,48 @@
+2a)
+cat("Area Calculator Program\n")  
+cat("1. Area of Rectangle\n")  
+cat("2. Area of Square\n")  
+cat("3. Area of Triangle\n")  
+cat("4. Area of Circle\n")  
+
+choice <- readline(prompt = "Enter your choice (1-4): ")  
+
+switch(choice,   
+       "1" = {  
+         length <- as.numeric(readline(prompt = "Enter length: "))  
+         breadth <- as.numeric(readline(prompt = "Enter breadth: "))  
+         area <- length * breadth  
+         cat("Area of Rectangle =", area, "\n")  
+       },  
+       "2" = {  
+         side <- as.numeric(readline(prompt = "Enter the side length: "))  
+         area <- side * side  
+         cat("Area of Square =", area, "\n")  
+       },  
+       "3" = {  
+         base <- as.numeric(readline(prompt = "Enter base: "))  
+         height <- as.numeric(readline(prompt = "Enter height: "))  
+         area <- 0.5 * base * height  
+         cat("Area of Triangle =", area, "\n")  
+       },  
+       "4" = {  
+         radius <- as.numeric(readline(prompt = "Enter radius: "))  
+         area <- 3.14159 * radius * radius  
+         cat("Area of Circle =", area, "\n")  
+       },  
+       {  
+         cat("Invalid choice! Please enter a number between 1 and 4.\n")  
+       }  
+)  
+
+2b)
+a <- 0  
+c <- 1  
+cat("First 10 Fibonacci numbers:\n")  
+for (i in 1:10) {   
+  cat(a, " ")    
+  b <- a + c  
+  a <- c  
+  c <- b  
+}  
+cat("\n")  
