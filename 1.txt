@@ -1,0 +1,28 @@
+1a) 
+cat("Temperature Conversion Program\n")  
+cat("1. Fahrenheit to Celsius\n")  
+cat("2. Celsius to Fahrenheit\n")  
+choice <- readline(prompt = "Enter your choice (1 or 2): ")  
+switch(choice,  
+       "1" = {  
+         f <- as.numeric(readline(prompt = "Enter temperature in Fahrenheit: "))  
+         c <- (f - 32) * 5/9  
+         cat(f, "Fahrenheit =", round(c, 2), "Celsius\n")  
+       },  
+       "2" = {  
+         c <- as.numeric(readline(prompt = "Enter temperature in Celsius: "))  
+         f <- (c * 9/5) + 32  
+         cat(c, "Celsius =", round(f, 2), "Fahrenheit\n")  
+       },  
+       {  
+         cat("Invalid choice! Please enter 1 or 2.\n")  
+       }  
+)  
+
+1b) 
+cat("Sequence from 20 to 50:\n") 
+print(seq(20, 50)) 
+cat("Mean of numbers from 20 to 60:\n") 
+print(mean(20:60)) 
+cat("\nSum of numbers from 50 to 100:\n") 
+print(sum(50:100))
