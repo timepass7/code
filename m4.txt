@@ -1,0 +1,19 @@
+1) Create / Switch to Employee Database 
+use emp_db 
+switched to db emp_db 
+2) Create Collection & Insert 7 Documents 
+emp_db> db.employees.insertMany([ 
+{ emp_id: 101, name: "Arun", dept: "IT", salary: 35000, city: "Chennai" }, 
+{ emp_id: 102, name: "Bala", dept: "HR", salary: 28000, city: "Coimbatore" }, 
+{ emp_id: 103, name: "Charan", dept: "IT", salary: 42000, city: "Madurai" }, 
+{ emp_id: 104, name: "Divya", dept: "Finance", salary: 50000, city: "Chennai" }, 
+{ emp_id: 105, name: "Ezhil", dept: "HR", salary: 30000, city: "Trichy" }, 
+{ emp_id: 106, name: "Farah", dept: "IT", salary: 45000, city: "Salem" }, 
+{ emp_id: 107, name: "Gokul", dept: "Sales", salary: 32000, city: "Erode" } 
+]) 
+3) find – Display All Employees 
+emp_db> db.employees.find().pretty() 
+4) limit – Display First 3 Documents 
+emp_db> db.employees.find().limit(3) 
+5) skip – Skip First 5 Documents & Display Rest 
+emp_db> db.employees.find().skip(5)
