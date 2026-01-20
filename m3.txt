@@ -1,0 +1,36 @@
+2) Create Collection & Insert 10 Documents 
+movie_db> db.movies.insertMany([ 
+{ movie_name: "Inception", director: "Christopher Nolan", rating: 5, yyear: 2010 }, 
+{ movie_name: "Interstellar", director: "Christopher Nolan", rating: 5, year: 2014 }, 
+{ movie_name: "Avatar", director: "James Cameron", rating: 4, year: 2009 }, 
+{ movie_name: "Titanic", director: "James Cameron", rating: 5, year: 1997 }, 
+{ movie_name: "Joker", director: "Todd Phillips", rating: 4, year: 2019 }, 
+{ movie_name: "Gladiator", director: "Ridley Scott", rating: 5, year: 2000 }, 
+{ movie_name: "Tenet", director: "Christopher Nolan", rating: 3, year: 2020 }, 
+{ movie_name: "Dunkirk", director: "Christopher Nolan", rating: 4, yeayear: 2017 }, 
+{ movie_name: "The Prestige", director: "Christopher Nolan", rating: 5, year: 2006 }, 
+{ movie_name: "Avatar 2", director: "James Cameron", rating: 4, year: 2022 } 
+]) 
+
+3) Count Movies Filmed Each Year (From 2005 Onwards) 
+db.movies.aggregate([ 
+{ 
+$match: { year: { $gte: 2005 } } 
+}, 
+{ 
+$group: { 
+_id: "$year", 
+movie_count: { $sum: 1 } 
+} 
+}, 
+{ 
+$project: { 
+_id: 0, 
+year: "$_id", 
+movie_count: 1 
+} 
+}, 
+{ 
+} 
+]) 
+$sort: { year: 1 } 
