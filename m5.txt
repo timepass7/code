@@ -1,0 +1,69 @@
+1) Create / Switch to Employee Database 
+use emp_db 
+switched to db emp_db 
+2) Create Collection & Insert 7 Documents 
+emp_db> db.emp_info.insertMany([ 
+{ 
+emp_id: 1, 
+name: "Arun", 
+departments: ["IT", "Support"], 
+salary: 35000, 
+address: { street: "Anna Nagar", city: "Chennai" } 
+}, 
+{ 
+emp_id: 2, 
+name: "Bala", 
+departments: ["HR"], 
+salary: 30000, 
+address: { street: "RS Puram", city: "Coimbatore" } 
+}, 
+{ 
+emp_id: 3, 
+name: "Charan", 
+departments: ["IT", "Finance"], 
+salary: 45000, 
+address: { street: "KK Nagar", city: "Madurai" } 
+}, 
+{ 
+emp_id: 4, 
+name: "Divya", 
+departments: ["Finance"], 
+salary: 50000, 
+address: { street: "T Nagar", city: "Chennai" } 
+}, 
+{ 
+} 
+]) 
+emp_id: 5, 
+name: "Ezhil", 
+departments: ["HR", "Admin"], 
+salary: 32000, 
+address: { street: "Cantonment", city: "Trichy" } 
+3) update – Update Salary 
+emp_db> db.emp_info.update( 
+{ name: "Arun" }, 
+{ $set: { salary: 38000 } } 
+) 
+4) updateOne – Update One Document 
+emp_db> db.emp_info.updateOne( 
+{ name: "Bala" }, 
+{ $push: { departments: "Recruitment" } } 
+) 
+5) updateMany – Update Multiple Documents 
+emp_db> db.emp_info.updateMany( 
+{ departments: "IT" }, 
+{ $inc: { salary: 5000 } } 
+)
+6) replaceOne – Replace Entire Document 
+emp_db> db.emp_info.replaceOne( 
+{ emp_id: 3 }, 
+{ 
+} 
+) 
+emp_id: 3, 
+name: "Charan Kumar", 
+departments: ["IT", "Management"], 
+salary: 60000, 
+address: { street: "Alagapuram", city: "Salem" } 
+7) After all operations 
+emp_db> db.emp_info.find().pretty() 
