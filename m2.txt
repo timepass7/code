@@ -1,0 +1,45 @@
+2) Create Collection & Insert 10 Documents 
+movie_db> db.movies_info.insertMany([ 
+{ movie_name: "Inception", director: "Christopher Nolan", rating: 5, year: 2010, genre: "Sci-Fi" }, 
+{ movie_name: "Interstellar", director: "Christopher Nolan", rating: 5, year: 2014, genre: "Sci-Fi" }, 
+{ movie_name: "Titanic", director: "James Cameron", rating: 5, year: 1997, genre: "Romance" }, 
+{ movie_name: "Avatar", director: "James Cameron", rating: 4, year: 2009, genre: "Fantasy" }, 
+{ movie_name: "Joker", director: "Todd Phillips", rating: 4, year: 2019, genre: "Drama" }, 
+{ movie_name: "Gladiator", director: "Ridley Scott", rating: 5, year: 2000, genre: "Action" }, 
+{ movie_name: "Tenet", director: "Christopher Nolan", rating: 3, year: 2020, genre: "Sci-Fi" }, 
+{ movie_name: "Dunkirk", director: "Christopher Nolan", rating: 4, year: 2017, genre: "War" }, 
+{ movie_name: "The Prestige", director: "Christopher Nolan", rating: 5, year: 2006, genre: 
+"Thriller" }, 
+{ movie_name: "Avatar 2", director: "James Cameron", rating: 4, year: 2022, genre: "Fantasy" } 
+]) 
+3) Display All Documents 
+movie_db> db.movies_info.find() 
+4) Display Movie Names in Ascending Order 
+movie_db> db.movies_info.find( 
+{}, 
+{ movie_name: 1, _id: 0 } 
+).sort({ movie_name: 1 })
+5) Display First 5 & Last 2 Movie Names 
+movie_db> db.movies_info.aggregate([ 
+{ 
+} 
+]) 
+$facet: { 
+firstFive: [ 
+{ $sort: { _id: 1 } }, 
+{ $limit: 5 }, 
+{ $project: { movie_name: 1, _id: 0 } } 
+], 
+lastTwo: [ 
+{ $sort: { _id: -1 } }, 
+{ $limit: 2 }, 
+{ $project: { movie_name: 1, _id: 0 } } 
+] 
+}
+7) Display distinct genre 
+movie_db> db.movies_info.distinct("genre") 
+8) Display Movie Names Where Rating = 5 
+movie_db> db.movies_info.find( 
+{ rating: 5 }, 
+{ movie_name: 1, _id: 0 } 
+) 
