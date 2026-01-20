@@ -1,0 +1,9 @@
+db.lib.aggregate([{$group:
+{_id:null,
+totprice:{$sum:"$price"},
+avgprice:{$avg:"$price"}
+minprice:{$min:"$price"},
+maxprice:{$max:"$price"},
+allbooks:{$push:"$title"},
+first:{$first:"$title"},
+last:{$last:"$title"}}}])
