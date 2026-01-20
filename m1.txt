@@ -1,0 +1,22 @@
+1) Create / Switch to Database 
+student> use stu_db 
+switched to db stu_db 
+2) Create Collection & Insert 3 Documents 
+stu_db> db.students.insertMany([ 
+{ name: "Arun", age: 19, marks: 85, city: "Chennai" }, 
+{ name: "Bala", age: 21, marks: 72, city: "Coimbatore" }, 
+{ name: "Charan", age: 18, marks: 90, city: "Chennai" } 
+])
+3) Display All Documents (find + pretty) 
+stu_db> db.students.find().pretty()
+4) findOne() 
+stu_db> db.students.findOne({ name: "Bala" })
+5) find with gt (greater than) 
+stu_db> db.students.find({ marks: { $gt: 80 } }).pretty()
+6) find with AND condition 
+stu_db> db.students.find({ 
+   city: "Chennai", 
+   marks: { $gt: 80 } 
+ }).pretty()
+7) Combined Regex 
+stu_db> db.students.find({ name: { $regex: "^C.*n$" } }).pretty()
