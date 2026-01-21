@@ -1,0 +1,29 @@
+Compress Single File 
+$ tar -cvf 
+compress.txt output.txt
+
+Decompress Single File 
+$ tar -xvf 
+compress.txt 
+
+compress folder 
+$ tar -cvf compress.txt 
+23bit052
+
+decompress folder 
+$ tar -xvf compress.txt 
+23bit052
+
+Gzip Compression (Single File) 
+$ cd 23bit051 
+$ gzip output.txt 
+
+Gzip Decompression 
+$ gunzip output.txt.gz 
+
+zip Compression (Single File) 
+$ zip outputxx.txt 
+output.txt
+
+zip Decompression 
+$ unzip outputxx.txt 
