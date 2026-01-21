@@ -1,0 +1,41 @@
+$ mkdir file 
+$ cd file
+$ cat > file1.txt 
+Welcome to PSGCAS 
+$ cat file1.txt 
+$ cat >> file2.txt 
+$ cat >> file1.txt 
+Department of Information Technology 
+Hello students everyone should your assignment
+$ cat file1.txt 
+$ wc -l<file1.txt 
+$ wc file1.txt
+$ cat >> number.txt 
+9 
+2 
+5 
+7 
+2 
+4 
+8 
+2 
+4 
+6 
+7 
+8 
+$ sort < number.txt
+$ cat >> names.txt 
+$ cat names.txt 
+Pavi 
+Ragu 
+Raji 
+$ sort < names.txt 
+$ sort names.txt|head -7|tail -5
+$ head names.txt
+$ cat >> linux.txt 
+PSGCAS 
+PSGCAS 
+HELLO 
+$ uniq -c linux.txt
+$ uniq -d linux.txt 
+$ ls | tee linux.txt 
