@@ -1,0 +1,16 @@
+echo "HEAD COMMAND" 
+head demo.txt 
+echo "TAIL COMMAND" 
+tail demo.txt 
+echo "SORT COMMAND" 
+sort demo.txt 
+echo "MODIFIED HEAD COMMAND" 
+head -3 demo.txt 
+echo "MODIFIED TAIL COMMAND" 
+tail -2 demo.txt 
+echo "WORD COUNT COMMAND" 
+wc demo.txt 
+echo "UNIQUE COMMAND" 
+uniq demo.txt 
+echo "GREP COMMAND" 
+grep -i "asdfgh" demo.txt 
