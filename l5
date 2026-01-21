@@ -1,0 +1,28 @@
+echo "Choose an option:" 
+echo "1. Display current Date" 
+echo "2. Display user name" 
+echo "3. List files in current directory" 
+echo "4. Display current directory" 
+ 
+read -p "Enter your choice(1-4):" choice 
+case $choice in 
+1) 
+echo "Current date is:"  
+date 
+;; 
+2) 
+echo "user name is:"  
+whoami 
+;; 
+3) 
+echo "files in current directory:"  
+ls  
+;; 
+4) 
+echo "current directory is:"  
+pwd  
+;; 
+*) 
+echo "Invalid choice." 
+;; 
+esac
