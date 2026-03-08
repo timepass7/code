@@ -1,0 +1,14 @@
+CREATE TABLE library(bookid int primary 
+key,bookname text, rate int,rating int); 
+
+INSERT INTO 
+library(bookid,bookname,rate,rating) VALUES 
+(201,'alchemist',1200,3); 
+
+SELECT * FROM library; 
+
+CREATE INDEX ratingindex ON library(rating); 
+ACCESING USING THE INDEX: 
+SELECT * FROM library WHERE rating=3; 
+
+DROP INDEX ratingindex;
