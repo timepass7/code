@@ -1,0 +1,17 @@
+CREATE TABLE library(bookid int primary 
+key,bookname text, rate int,rating int);
+
+INSERT INTO 
+library(bookid,bookname,rate,rating) VALUES 
+(201,'alchemist',1200,3);
+
+SELECT * FROM library; 
+
+UPDATE library SET rate=500 WHERE 
+bookid=201; 
+
+SELECT * FROM library; 
+
+DELETE FROM library WHERE bookid=202; 
+
+SELECT * FROM library; 
