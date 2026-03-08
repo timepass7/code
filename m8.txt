@@ -1,0 +1,51 @@
+CREATE KEYSPACE hotelapp WITH 
+replication={'class':'SimpleStrategy','replication_factor':1};
+
+CREATE TABLE hoteldet( 
+hotelid int primary key, 
+hotelname text, 
+location text, 
+rating int); 
+
+INSERT INTO 
+hoteldet(hotelid,hotelname,location,rating 
+VALUES (121,'taj','coimbatore',4); 
+
+SELECT * FROM hoteldet WHERE hotelid=123;
+
+CREATE TABLE availability ( 
+ hotel_id int, 
+ room_no int, 
+ available_date date, 
+ status text, 
+ PRIMARY KEY ((hotel_id), available_date, 
+room_no)); 
+
+INSERT INTO availability (hotel_id, room_no, 
+available_date, status) 
+VALUES (122, 102, '2026-03-03', 'Not 
+Available'); 
+
+CREATE INDEX ON availability (status);
+
+SELECT room_no,status FROM availability 
+WHERE hotel_id=123 AND 
+available_date>='2026-03-02' AND 
+available_date<='2026-03-15' AND 
+status='Available'; 
+
+CREATE TABLE details( 
+ hotel_id int, 
+ room_no int, 
+ rate int, 
+ type text, 
+amenity text, 
+ PRIMARY KEY ((hotel_id),room_no));
+
+ INSERT INTO 
+details(hotel_id,room_no,rate,type,amenity) 
+VALUES (121,101,1500,'single','AC'); 
+
+SELECT rate,amenity FROM details WHERE 
+room_no=101 ALLOW FILTERING;
+
