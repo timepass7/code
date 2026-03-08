@@ -1,0 +1,39 @@
+//CREATING KEYSPACE 
+CREATE KEYSPACE student1 
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1}; 
+use student1; 
+
+//CREATE TABLE 
+CREATE TABLE IF NOT EXISTS student ( 
+student_id int PRIMARY KEY, name text, rollno int, dept text, mark1 int , 
+mark2 int,mark3 int ); 
+
+//INSERT RECORS 
+INSERT INTO student (student_id, name, rollno, dept, mark1, mark2, mark3)  
+VALUES (101, 'Aadhi',101, 'CS', 88, 92, 85); 
+INSERT INTO student (student_id, name, rollno, dept, mark1, mark2, mark3)  
+VALUES (102, 'Varun',102, 'IT', 95, 89, 91); 
+INSERT INTO student (student_id, name, rollno, dept, mark1, mark2, mark3)  
+VALUES (103, 'Vihaan',103, 'CT', 78, 82, 80); 
+INSERT INTO student (student_id, name, rollno, dept, mark1, mark2, mark3)  
+VALUES (104, 'Pooja',104, 'CS', 91, 94, 88); 
+INSERT INTO student (student_id, name, rollno, dept, mark1, mark2, mark3)  
+VALUES (105, 'Arjun',105, 'IT', 82, 79, 85); 
+INSERT INTO student (student_id, name, rollno, dept, mark1, mark2, mark3)  
+VALUES (106, 'Alex',106, 'CT', 89, 91, 93); 
+INSERT INTO student (student_id, name, rollno, dept, mark1, mark2, mark3)  
+VALUES (107, 'Aditya',107, 'CS', 76, 80, 78); 
+INSERT INTO student (student_id, name, rollno, dept, mark1, mark2, mark3)  
+VALUES (108, 'Kavya',108, 'IT', 94, 96, 92); 
+INSERT INTO student (student_id, name, rollno, dept, mark1, mark2, mark3)  
+VALUES (109, 'Rohan',109, 'CT', 85, 87, 84); 
+
+cqlsh:student1> Select * from student;
+
+//ALTER KEYSPACE 
+cqlsh:student1>ALTER KEYSPACE student1  
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3}; 
+
+//DROP KEYSPACE 
+cqlsh:student1>DROP KEYSPACE student1; 
+cqlsh:student1> describe keyspaces;
