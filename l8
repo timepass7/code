@@ -1,0 +1,7 @@
+read -p "enter a string:" input 
+rever=$(echo "$input" | rev) 
+if [ "$input" = "$rever" ]; then 
+        echo "is palindrome" 
+else 
+        echo "not a palindrome" 
+fi 
