@@ -1,0 +1,9 @@
+a)
+s="/home/23BIT030/23bit030"
+echo "listing c and txt files"
+find "$s" -type f \( -name "*.txt" -o -name "*.c" \) -print
+
+b)
+s="/home/23BIT030/23bit030" 
+d="/home/23BIT030/23bit030/a" 
+mv "$s"/*.txt "$d"/ 
