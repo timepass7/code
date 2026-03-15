@@ -1,0 +1,63 @@
+#CSV1 
+Roll.No,Name,Dept,M1,M2 
+1,Ravi,CS,85,78 
+2,Anu,IT,88,92 
+3,Kiran,CT,75,80 
+4,Divya,DA,90,85 
+5,Arun,CS,92,89 
+
+#CSV2 
+Roll.No,M3,M4 
+1,90,88 
+2,91,89 
+3,78,70 
+4,88,92 
+5,94,90 
+
+# Read first CSV file 
+read.csv("C:/Users/OneDrive/De
+data1 <- 
+read.csv("C:/Users/SRINITHI/OneDrive/De
+sktop/marks_part1.csv") 
+cat("First 6 Rows of Data1:\n") 
+print(head(data1)) 
+cat("\nStructure of Data1:\n") 
+str(data1) 
+cat("\nSummary of Data1:\n") 
+print(summary(data1)) 
+cat("\nColumn Names of Data1:\n") 
+print(colnames(data1)) 
+
+# Read second CSV file 
+data2 <- 
+read.csv("C:/Users/SRINITHI/OneDrive/De
+sktop/marks_part2.csv") 
+cat("\nFirst 6 Rows of Data2:\n") 
+print(head(data2)) 
+cat("\nStructure of Data2:\n") 
+str(data2) 
+cat("\nSummary of Data2:\n") 
+print(summary(data2))
+
+# Column Binding 
+combined_cbind <- cbind(data1, data2[, 
+1]) 
+cat("\nData after Column Binding 
+(cbind):\n") 
+print(combined_cbind) 
+
+# Row Binding (create similar structure) 
+extra_students <- data.frame( 
+Roll.No = c(6, 7), 
+Name = c("Meena", "Nisha"), 
+Dept = c("CS", "DA"), 
+M1 = c(80, 91), 
+M2 = c(83, 93), 
+cat("\nDimensions of Data1:\n") 
+  M3 = c(79, 90), 
+  M4 = c(82, 92) 
+) 
+combined_rbind <- 
+rbind(combined_cbind, extra_students) 
+cat("\nData after Row Binding (rbind):\n") 
+print(combined_rbind)
