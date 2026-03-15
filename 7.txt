@@ -1,0 +1,51 @@
+# VECTOR WITH MISSING VALUES 
+marks <- c(85, NA, 90, 88, NA)
+cat("Vector (Marks):", marks, "\n") 
+
+# Count NA values in vector 
+cat("Number of NA values in Marks:", 
+sum(is.na(marks)), "\n") 
+
+# Subset of vector (remove NA values) 
+marks_subset <- marks[!is.na(marks)] 
+cat("Subset of Marks (Without NA):", 
+marks_subset, "\n\n") 
+
+# LIST WITH MISSING VALUES 
+student <- list( 
+name = "Ravi", 
+age = NA, 
+marks = marks 
+) 
+cat("List (Student Details):\n") 
+print(student) 
+
+# Count NA values in list 
+cat("Number of NA values in List:", 
+sum(is.na(unlist(student))), "\n") 
+student_subset <- student[c("name", 
+"marks")] 
+cat("Subset of List (Name and Marks):\n") 
+print(student_subset) 
+cat("\n") 
+
+# DATA FRAME WITH MISSING VALUES 
+student_df <- data.frame( 
+Name = c("Ravi", "Anu", "Kiran", 
+"Meena"), 
+Age = c(20, NA, 19, NA), 
+Marks = c(85, 90, NA, 88) 
+) 
+cat("Data Frame (Student Table):\n") 
+print(student_df) 
+
+# Count NA values in data frame 
+cat("Number of NA values in Data 
+Frame:", 
+sum(is.na(student_df)), "\n") 
+
+# Subset of data frame (rows without NA) 
+student_df_subset <- na.omit(student_df) 
+cat("Subset of Data Frame (Without 
+NA):\n") 
+print(student_df_subset) 
