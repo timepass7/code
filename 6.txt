@@ -1,0 +1,22 @@
+# STRING MANIPULATION FUNCTIONS IN R 
+str <- "Data Science with R" 
+cat("Original String:", str, "\n\n") 
+cat("Uppercase:", toupper(str), "\n") 
+cat("Lowercase:", tolower(str), "\n") 
+cat("Number of Characters:", nchar(str), "\n") 
+cat("Substring (1 to 4):", substr(str, 1, 4), "\n") 
+cat("Replace 'Science' with 'Analytics':", sub("Science", "Analytics", str), "\n") 
+cat("Pattern Found ('with'):", grepl("with", str), "\n") 
+cat("Position of 'R':", regexpr("R", str), "\n") 
+cat("Split String:", strsplit(str, " ")[[1]], "\n") 
+cat("Concatenation:", paste(str, "- Programming"), "\n") 
+cat("Repeated String:", rep(str, 2), "\n") 
+cat("Reversed String:", paste(rev(strsplit(str, "")[[1]]), collapse = ""), "\n") 
+str2 <- "   Learning R Language   " 
+cat("Trimmed String:", trimws(str2), "\n") 
+cat("First Character:", substr(str, 1, 1), "\n") 
+cat("Last Character:", substr(str, nchar(str), nchar(str)), "\n") 
+cat("Replace all 'a' with 'A':", gsub("a", "A", str), "\n") 
+cat("Number of Words:", length(strsplit(str, " ")[[1]]), "\n") 
+cat("String Comparison:", str == "Data Science with R", "\n") 
+cat("Formatted String:", sprintf("Welcome to %s!", str), "\n")
